@@ -1,6 +1,6 @@
 # Torneos de Halterofilia API
 
-¡Bienvenido a la API de Torneos de Halterofilia! Este proyecto es una implementación completa de una API para gestionar torneos de halterofilia, desarrollada tanto en C# como en Python. Este proyecto forma parte de mi portafolio de habilidades y demuestra mi capacidad para trabajar con múltiples lenguajes de programación y tecnologías.
+¡Bienvenido a la API de Torneos de Halterofilia! Este proyecto es una implementación completa de una API para gestionar torneos de halterofilia para Juegos Olímpicos, desarrollada tanto en C# como en Python. Este proyecto forma parte de mi portafolio de habilidades y demuestra mi capacidad para trabajar con múltiples lenguajes de programación y tecnologías.
 
 ## Descripción del Proyecto
 
@@ -18,6 +18,11 @@ La API de Torneos de Halterofilia permite gestionar atletas, torneos, intentos y
 - **Gestión de participación de Atletas en torneos**: Crear, Leer para participación de atletas en torneos.
 - **Gestión de Intentos**: Crear, Leer para intentos de levantamiento de pesas por participación en torneo.
 - **Resultados de Competencias**: Obtener resultados de competencias con paginación y filtros.
+
+
+#### Resultados competiciones:
+- ***AthleteAttemptSummary:*** Muestra el numero de intentos realizados por competidor dentro de un torneo.
+- ***CompetitionResult:*** Muestra el resultado de un torneo de competicion el cual sume el mejor de los intentos en la modalidad de Arranque y/o Envión organizando de mayor a menor los mejores pesos.
 
 ### Base de Datos
 
