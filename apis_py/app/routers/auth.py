@@ -8,7 +8,7 @@ router = APIRouter(
     tags=["auth"]
 )
 
-@router.post("/token")
+@router.post("/login")
 def login(auth_request: AuthRequest):
     """
     Autentica un usuario y devuelve un token JWT para acceso autenticado.

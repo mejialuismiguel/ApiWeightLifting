@@ -5,8 +5,8 @@ from app.services.country_service import CountryService
 from app.auth.jwt_bearer import JWTBearer
 
 router = APIRouter(
-    prefix="/countries",
-    tags=["countries"],
+    prefix="/country",
+    tags=["country"],
     dependencies=[Depends(JWTBearer())]
 )
 

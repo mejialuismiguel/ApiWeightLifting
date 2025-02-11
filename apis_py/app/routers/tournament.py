@@ -5,8 +5,8 @@ from app.services.tournament_service import TournamentService
 from app.auth.jwt_bearer import JWTBearer
 
 router = APIRouter(
-    prefix="/tournaments",
-    tags=["tournaments"],
+    prefix="/tournament",
+    tags=["tournament"],
     dependencies=[Depends(JWTBearer())]
 )
 
