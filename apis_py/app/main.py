@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import auth, athlete, tournament, country, weight_category, tournament_participation, attempt, athlete_attempt_summary
+from app.routers import auth, athlete, tournament, country, weight_category, tournament_participation, attempt, athlete_attempt_summary, competition_result
 from app.utils.logger import setup_logger
 from app.database import engine, Base
 from app.models import log
@@ -26,6 +26,7 @@ app.include_router(weight_category.router, prefix="/api")
 app.include_router(tournament_participation.router, prefix="/api")
 app.include_router(attempt.router, prefix="/api")
 app.include_router(athlete_attempt_summary.router, prefix="/api")
+app.include_router(competition_result.router, prefix="/api")
 
 # @app.get("/")
 # def read_root():

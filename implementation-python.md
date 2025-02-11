@@ -67,37 +67,38 @@ levantar el archivo con: ```docker-compose up```
     uvicorn app.main:app --reload
     ```
 
-## Endpoints Principales
+## Endpoints
 
 ### Autenticación obtencion de token JWT
-- **Login**: `POST /api/auth/login`
+- **Login**: `POST /api/Auth/login`
 
 ### Paises
-- **Crear Pais**: `POST /api/country`
-- **Obtener Pais**: `GET /api/country`
+- **Crear Pais**: `POST /api/Country`
+- **Obtener Pais**: `GET /api/Country`
 
 ### Categorias de peso
-- **Crear categoria de peso**: `POST /api/country`
-- **Obtener categorias de peso**: `GET /api/country`
+- **Crear categoria de peso**: `POST /api/WeightCategory`
+- **Obtener categorias de peso**: `GET /api/WeightCategory`
 
 ### Atletas
-- **Crear Atleta**: `POST /api/athlete`
-- **Obtener Atletas**: `GET /api/athlete`
+- **Crear Atleta**: `POST /api/Athlete`
+- **Obtener Atletas**: `GET /api/Athlete`
 
 ### Torneos
-- **Crear Torneo**: `POST /api/tournament`
-- **Obtener Torneos**: `GET /api/tournament`
+- **Crear Torneo**: `POST /api/Tournament`
+- **Obtener Torneos**: `GET /api/Tournament`
 
 ### Participacion en Torneos
-- **Agregar participante a torneo**: `POST /api/tournament`
-- **Revisar participantes de torneo**: `GET /api/tournament`
+- **Agregar participante a torneo**: `POST /api/TournamentParticipation`
+- **Revisar participantes de torneo**: `GET /api/TournamentParticipation`
 
 ### Intentos
-- **Agregar Intento por tipo y participante**: `POST /api/attempt`
-- **Obtener Intentos por Torneo**: `GET /api/attempt`
+- **Agregar Intento por tipo y participante**: `POST /api/Attempt`
+- **Obtener Intentos por Torneo**: `GET /api/Attempt`
 
 ### Resultados de Competencias
-- **Obtener Resultados**: `GET /api/competitionresult`
+- **Obtener Resultados intentos realizados por atleta**: `GET /api/AthleteAttemptSummary`
+- **Obtener Resultados ppantalla de mejores pesos**: `GET /api/CompetitionResult`
 
 ## Contribuciones
 

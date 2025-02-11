@@ -5,8 +5,8 @@ from app.services.athlete_attempt_summary_service import AthleteAttemptSummarySe
 from app.auth.jwt_bearer import JWTBearer
 
 router = APIRouter(
-    prefix="/athlete_attempt_summary",
-    tags=["athlete_attempt_summary"],
+    prefix="/AthleteAttemptSummary",
+    tags=["AthleteAttemptSummary"],
     dependencies=[Depends(JWTBearer())]
 )
 
