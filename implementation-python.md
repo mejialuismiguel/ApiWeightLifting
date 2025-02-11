@@ -8,11 +8,17 @@ La API de Torneos de Halterofilia permite gestionar atletas, torneos, intentos y
 
 ### Características Principales
 
-- **Gestión de Atletas**: CRUD (Crear, Leer, Actualizar, Eliminar) para atletas.
-- **Gestión de Torneos**: CRUD para torneos.
-- **Gestión de Intentos**: CRUD para intentos de levantamiento de pesas.
-- **Resultados de Competencias**: Obtener resultados de competencias con paginación y filtros.
+- **Documentación**: Documentación detallada en Swagger.
 - **Autenticación y Autorización**: Implementación de autenticación JWT para asegurar la API.
+- **API de Generacion de token JWT**: Obtención mediante usuario y contraseña
+- **Gestión de Países**: Crear, Leer para países que es un insumo de los atletas.
+- **Gestión de Categorías de peso**: Crear, Leer para categorías de peso que es un insumo de los atletas.
+- **Gestión de Atletas**: Crear, Leer para atletas.
+- **Gestión de Torneos**: Crear, Leer para torneos.
+- **Gestión de participación de Atletas en torneos**: Crear, Leer para participación de atletas en torneos.
+- **Gestión de Intentos**: Crear, Leer para intentos de levantamiento de pesas por participación en torneo.
+- **Resultados de Competencias**: Obtener resultados de competencias con paginación y filtros.
+
 
 ## Configuración y Ejecución
 
@@ -22,6 +28,10 @@ La API de Torneos de Halterofilia permite gestionar atletas, torneos, intentos y
 - [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) (o cualquier otra base de datos compatible)
 
 La información para implementación y despliegue sobre el diseño de la base de datos, creación de contenedor, datos de prueba y procedimientos almacenados se encuentra en la carpeta data en la raíz del directorio.
+
+En la carpeta /data/docker se encuentra el docker-compose requerido para levantar una instancia de sql server modificarlo para credenciales
+levantar el archivo con: ```docker-compose up```
+
 
 ### Configuración
 
@@ -59,28 +69,35 @@ La información para implementación y despliegue sobre el diseño de la base de
 
 ## Endpoints Principales
 
-### Atletas
+### Autenticación obtencion de token JWT
+- **Login**: `POST /api/auth/login`
 
+### Paises
+- **Crear Pais**: `POST /api/country`
+- **Obtener Pais**: `GET /api/country`
+
+### Categorias de peso
+- **Crear categoria de peso**: `POST /api/country`
+- **Obtener categorias de peso**: `GET /api/country`
+
+### Atletas
 - **Crear Atleta**: `POST /api/athlete`
 - **Obtener Atletas**: `GET /api/athlete`
 
 ### Torneos
-
 - **Crear Torneo**: `POST /api/tournament`
 - **Obtener Torneos**: `GET /api/tournament`
 
-### Intentos
+### Participacion en Torneos
+- **Agregar participante a torneo**: `POST /api/tournament`
+- **Revisar participantes de torneo**: `GET /api/tournament`
 
-- **Agregar Intento**: `POST /api/attempt`
+### Intentos
+- **Agregar Intento por tipo y participante**: `POST /api/attempt`
 - **Obtener Intentos por Torneo**: `GET /api/attempt`
 
 ### Resultados de Competencias
-
 - **Obtener Resultados**: `GET /api/competitionresult`
-
-### Autenticación
-
-- **Login**: `POST /api/auth/login`
 
 ## Contribuciones
 

@@ -8,23 +8,29 @@ La API de Torneos de Halterofilia permite gestionar atletas, torneos, intentos y
 
 ### Características Principales
 
-- **Autenticación y Autorización**: Implementación de autenticación JWT para asegurar la API.
 - **Documentación**: Documentación detallada en Swagger.
-- **Gestión de Países**: CRUD (Crear, Leer, Actualizar) para países que es un insumo de los atletas.
-- **Gestión de Categorías de peso**: CRUD (Crear, Leer, Actualizar) para categorías de peso que es un insumo de los atletas.
-- **Gestión de Atletas**: CRUD (Crear, Leer, Actualizar, Eliminar) para atletas.
-- **Gestión de Torneos**: CRUD (Crear, Leer, Actualizar) para torneos.
-- **Gestión de participación de Atletas en torneos**: CRUD (Crear, Leer, Actualizar) para participación de atletas en torneos.
-- **Gestión de Intentos**: CRUD (Crear, Leer, Actualizar) para intentos de levantamiento de pesas por participación en torneo.
+- **Autenticación y Autorización**: Implementación de autenticación JWT para asegurar la API.
+- **API de Generacion de token JWT**: Obtención mediante usuario y contraseña
+- **Gestión de Países**: Crear, Leer para países que es un insumo de los atletas.
+- **Gestión de Categorías de peso**: Crear, Leer para categorías de peso que es un insumo de los atletas.
+- **Gestión de Atletas**: Crear, Leer para atletas.
+- **Gestión de Torneos**: Crear, Leer para torneos.
+- **Gestión de participación de Atletas en torneos**: Crear, Leer para participación de atletas en torneos.
+- **Gestión de Intentos**: Crear, Leer para intentos de levantamiento de pesas por participación en torneo.
 - **Resultados de Competencias**: Obtener resultados de competencias con paginación y filtros.
 
 ### Base de Datos
 
 La información para implementación y despliegue sobre el diseño de la base de datos, creación de contenedor, datos de prueba y procedimientos almacenados se encuentra en la carpeta data en la raíz del directorio.
 
+En la carpeta /data/docker se encuentra el docker-compose requerido para levantar una instancia de sql server modificarlo para credenciales
+levantar el archivo con: ```docker-compose up```
+
 ## Detalle de implementación
 
-La información de implementación se encuentra dividida entre el documento implementation-c#.md e implementation-python.md.
+La información de implementación se encuentra dividida entre el documento:
+Apis c#: [implementation-c#.md](implementation-c#.md)
+Apis Python [implementation-python.md](implementation-python.md)
 
 ## Contribuciones
 
