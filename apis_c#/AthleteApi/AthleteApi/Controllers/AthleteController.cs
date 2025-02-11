@@ -24,25 +24,17 @@ namespace AthleteApi.Controllers
 
         // Método HTTP POST para crear un nuevo atleta
         [HttpPost]
-        [SwaggerOperation(Summary = "Crea un nuevo atleta"
-                            , Description = """
-                                                Parámetros:
-                                                    - **athlete (AthleteCreate)**: Objeto con los datos del atleta a registrar.
-                                                        - **dni (str)**: Número de identificación del atleta.
-                                                        - **first_name (str)**: Nombre del atleta.
-                                                        - **last_name (str)**: Apellido del atleta.
-                                                        - **birth_date (date)**: Fecha de nacimiento del atleta.
-                                                        - **gender (str)**: Género del atleta ('M' para masculino, 'F' para femenino).
-                                                        - **country_id (int)**: ID del país de origen del atleta.
-                                                        - **weight_category_id (int)**: ID de la categoría de peso del atleta.
-
-                                                Retorna:
-                                                    - **AthleteResponse**: El atleta recién creado con su información registrada.
-
-                                                Excepciones:
-                                                    - **HTTPException 401**: Si el usuario no está autenticado.
-                                                    - **HTTPException 400**: Si los datos del atleta son inválidos o faltan campos requeridos.
-                                                """)]
+        [SwaggerOperation(
+            Summary = "Crea un nuevo atleta",
+            Description = "Crea un nuevo atleta en el sistema. Los campos requeridos son:\n" +
+                          "- `dni`: Documento Nacional de Identidad del atleta.\n" +
+                          "- `firstName`: Nombre del atleta.\n" +
+                          "- `lastName`: Apellido del atleta.\n" +
+                          "- `birthDate`: Fecha de nacimiento del atleta.\n" +
+                          "- `gender`: Género del atleta.\n" +
+                          "- `countryId`: Identificador del país del atleta. \n" + 
+                          "- `weightCategoryId`: Categoria del peso del athleta.\n" 
+        )]
         [SwaggerResponse(201, "El atleta fue creado exitosamente", typeof(Athlete))]
         [SwaggerResponse(400, "El atleta es nulo o los datos son inválidos")]
         public async Task<IActionResult> CreateAthlete([FromBody] Athlete athlete)
@@ -65,23 +57,13 @@ namespace AthleteApi.Controllers
 
         // Método HTTP GET para obtener una lista de atletas con paginación y filtro opcional por nombre
         [HttpGet]
-        [SwaggerOperation(Summary = "Obtiene una lista de atletas"
-                            , Description =     """
-                                                    Obtiene una lista paginada de atletas registrados en el sistema.
-
-                                                    Parámetros:
-                                                        - **page (int)**: Número de la página a consultar (mínimo 1, por defecto 1).
-                                                        - **size (int)**: Cantidad de atletas a devolver por página (mínimo 1, por defecto 10).
-                                                        - **dni (str, opcional)**: Filtra atletas por su número de identificación.
-                                                        - **first_name (str, opcional)**: Filtra atletas por su nombre.
-                                                        - **last_name (str, opcional)**: Filtra atletas por su apellido.
-
-                                                    Retorna:
-                                                        - **List[AthleteResponse]**: Una lista de atletas en la página solicitada.
-
-                                                    Excepciones:
-                                                        - **HTTPException 401**: Si el usuario no está autenticado.
-                                                    """)]
+        [SwaggerOperation(
+            Summary = "Obtiene una lista de atletas",
+            Description = "Obtiene una lista de atletas con paginación y filtro opcional por nombre. " +
+                          "Los filtros disponibles son:\n" +
+                          "- `name`: Filtra por el nombre del atleta.\n" +
+                          "La paginación se controla con los parámetros `pageNumber` y `pageSize`."
+        )]
         [SwaggerResponse(200, "Lista de atletas obtenida exitosamente", typeof(IEnumerable<Athlete>))]
         [SwaggerResponse(404, "El atleta no fue encontrado")]
         public async Task<IActionResult> GetAthletes(

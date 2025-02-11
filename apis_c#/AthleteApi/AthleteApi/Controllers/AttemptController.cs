@@ -28,12 +28,10 @@ namespace AthleteApi.Controllers
             Summary = "Agrega un nuevo intento",
             Description = "Agrega un nuevo intento de levantamiento de pesas. Los campos requeridos son:\n" +
                           "- `ParticipationId`: Identificador de la participación del atleta en el torneo.\n" +
-                          "- `AttemptNumber`: Número del intento.\n" +
-                          "- `Type`: Tipo de intento (ej. Snatch, Clean and Jerk).\n" +
+                          "- `AttemptNumber`: Número del intento, se cuenta con 3 intentos por arranque y 3 por envion.\n" +
+                          "- `Type`: Tipo de intento (ej. Arranque, Envion).\n" +
                           "- `WeightLifted`: Peso levantado en el intento.\n" +
-                          "- `Success`: Indica si el intento fue exitoso (1) o fallido (0).\n" +
-                          "- `TournamentName`: Nombre del torneo.\n" +
-                          "- `TournamentId`: Identificador único del torneo."
+                          "- `Success`: Indica si el intento fue exitoso (1) o fallido (0).\n" 
         )]
         [SwaggerResponse(200, "Intento agregado satisfactoriamente", typeof(ApiResponse))]
         [SwaggerResponse(500, "Error interno del servidor", typeof(ApiResponse))]
