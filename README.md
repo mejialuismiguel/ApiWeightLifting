@@ -34,8 +34,11 @@ levantar el archivo con: ```docker-compose up```
 ## Detalle de implementación
 
 La información de implementación se encuentra dividida entre el documento:
-Apis c#: [implementation-c#.md](implementation-c%23.md)
-Apis Python [implementation-python.md](implementation-python.md)
+- ***Apis c#:*** [implementation-c#.md](implementation-c%23.md)
+- ***Apis Python*** [implementation-python.md](implementation-python.md)
+
+## Imagenes de Ejemplo de implementacion: [/images](/images)
+
 
 ## Contribuciones
 
