@@ -1,53 +1,53 @@
-# Torneos de Halterofilia API
+# Weightlifting Tournaments API
 
-¡Bienvenido a la API de Torneos de Halterofilia! Este proyecto es una implementación completa de una API para gestionar torneos de halterofilia para Juegos Olímpicos, desarrollada tanto en C# como en Python. Este proyecto forma parte de mi portafolio de habilidades y demuestra mi capacidad para trabajar con múltiples lenguajes de programación y tecnologías.
+Welcome to the Weightlifting Tournaments API! This project is a complete implementation of an API to manage weightlifting tournaments for the Olympic Games, developed in both C# and Python. This project is part of my skill portfolio and demonstrates my ability to work with multiple programming languages and technologies.
 
-## Descripción del Proyecto
+## Spanish documentation
+[Spanish](README-ES.md)
 
-La API de Torneos de Halterofilia permite gestionar atletas, torneos, intentos y resultados de competencias. La API está diseñada para ser robusta y escalable, utilizando las mejores prácticas de desarrollo de software.
+## Project Description
 
-### Características Principales
+The Weightlifting Tournaments API allows managing athletes, tournaments, attempts, and competition results. The API is designed to be robust and scalable, using best software development practices.
 
-- **Documentación**: Documentación detallada en Swagger.
-- **Autenticación y Autorización**: Implementación de autenticación JWT para asegurar la API.
-- **API de Generacion de token JWT**: Obtención mediante usuario y contraseña
-- **Gestión de Países**: Crear, Leer para países que es un insumo de los atletas.
-- **Gestión de Categorías de peso**: Crear, Leer para categorías de peso que es un insumo de los atletas.
-- **Gestión de Atletas**: Crear, Leer para atletas.
-- **Gestión de Torneos**: Crear, Leer para torneos.
-- **Gestión de participación de Atletas en torneos**: Crear, Leer para participación de atletas en torneos.
-- **Gestión de Intentos**: Crear, Leer para intentos de levantamiento de pesas por participación en torneo.
-- **Resultados de Competencias**: Obtener resultados de competencias con paginación y filtros.
+### Main Features
 
+- **Documentation**: Detailed documentation in Swagger.
+- **Authentication and Authorization**: Implementation of JWT authentication to secure the API.
+- **JWT Token Generation API**: Obtainable via username and password.
+- **Country Management**: Create, Read for countries which are an input for athletes.
+- **Weight Category Management**: Create, Read for weight categories which are an input for athletes.
+- **Athlete Management**: Create, Read for athletes.
+- **Tournament Management**: Create, Read for tournaments.
+- **Athlete Participation Management in Tournaments**: Create, Read for athlete participation in tournaments.
+- **Attempt Management**: Create, Read for weightlifting attempts by participation in tournaments.
+- **Competition Results**: Obtain competition results with pagination and filters.
 
-#### Resultados competiciones:
-- ***AthleteAttemptSummary:*** Muestra el numero de intentos realizados por competidor dentro de un torneo.
-- ***CompetitionResult:*** Muestra el resultado de un torneo de competicion el cual sume el mejor de los intentos en la modalidad de Arranque y/o Envión organizando de mayor a menor los mejores pesos.
+#### Competition Results:
+- ***AthleteAttemptSummary:*** Shows the number of attempts made by a competitor within a tournament.
+- ***CompetitionResult:*** Shows the result of a competition tournament which sums the best attempts in the Snatch and/or Clean and Jerk modalities, organizing the best weights from highest to lowest.
 
-### Base de Datos
+### Database
 
-La información para implementación y despliegue sobre el diseño de la base de datos, creación de contenedor, datos de prueba y procedimientos almacenados se encuentra en la carpeta data en la raíz del directorio.
+The information for implementation and deployment regarding the database design, container creation, test data, and stored procedures can be found in the data folder at the root of the directory.
 
-En la carpeta /data/docker se encuentra el docker-compose requerido para levantar una instancia de sql server modificarlo para credenciales
-levantar el archivo con: ```docker-compose up```
+In the /data/docker folder, you will find the required docker-compose to bring up a SQL Server instance. Modify it for credentials and bring up the file with: ```docker-compose up```
 
-## Detalle de implementación
+## Implementation Details
 
-La información de implementación se encuentra dividida entre el documento:
-- ***Apis c#:*** [implementation-c#.md](implementation-c%23.md)
-- ***Apis Python*** [implementation-python.md](implementation-python.md)
+The implementation information is divided between the document:
+- ***C# APIs:*** [implementation-c#.md](implementation-c%23.md)
+- ***Python APIs:*** [implementation-python.md](implementation-python.md)
 
-## Imagenes de Ejemplo de implementacion: [/images](/images)
+## Example Implementation Images: [/images](/images)
 
+## Contributions
 
-## Contribuciones
+Contributions are welcome! If you wish to contribute to this project, please open an issue or send a pull request.
 
-¡Las contribuciones son bienvenidas! Si deseas contribuir a este proyecto, por favor abre un issue o envía un pull request.
+## License
 
-## Licencia
-
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para obtener más detalles.
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ---
 
-¡Gracias por visitar mi proyecto! Espero que encuentres útil esta API y que demuestre mis habilidades en desarrollo de software. Si tienes alguna pregunta o comentario, no dudes en contactarme.
+Thank you for visiting my project! I hope you find this API useful and that it demonstrates my software development skills. If you have any questions or comments, feel free to contact me.

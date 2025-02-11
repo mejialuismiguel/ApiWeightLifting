@@ -1,113 +1,110 @@
-# Torneos de Halterofilia API - Implementación en Python
+# Weightlifting Tournaments API - Python Implementation
 
-¡Bienvenido a la API de Torneos de Halterofilia! Esta implementación en Python para tener una base de como desarrollar API's robustas y escalables utilizando FastAPI.
+Welcome to the Weightlifting Tournaments API! This Python implementation provides a base for developing robust and scalable APIs using FastAPI.
 
-## Descripción del Proyecto
+## Project Description
 
-La API de Torneos de Halterofilia permite gestionar atletas, torneos, intentos y resultados de competencias. La API está diseñada para ser robusta y escalable, utilizando las mejores prácticas de desarrollo de software.
+The Weightlifting Tournaments API allows managing athletes, tournaments, attempts, and competition results. The API is designed to be robust and scalable, using best software development practices.
 
-### Características Principales
+### Main Features
 
-- **Documentación**: Documentación detallada en Swagger.
-- **Autenticación y Autorización**: Implementación de autenticación JWT para asegurar la API.
-- **API de Generacion de token JWT**: Obtención mediante usuario y contraseña
-- **Gestión de Países**: Crear, Leer para países que es un insumo de los atletas.
-- **Gestión de Categorías de peso**: Crear, Leer para categorías de peso que es un insumo de los atletas.
-- **Gestión de Atletas**: Crear, Leer para atletas.
-- **Gestión de Torneos**: Crear, Leer para torneos.
-- **Gestión de participación de Atletas en torneos**: Crear, Leer para participación de atletas en torneos.
-- **Gestión de Intentos**: Crear, Leer para intentos de levantamiento de pesas por participación en torneo.
-- **Resultados de Competencias**: Obtener resultados de competencias con paginación y filtros.
+- **Documentation**: Detailed documentation in Swagger.
+- **Authentication and Authorization**: Implementation of JWT authentication to secure the API.
+- **JWT Token Generation API**: Obtainable via username and password.
+- **Country Management**: Create, Read for countries which are an input for athletes.
+- **Weight Category Management**: Create, Read for weight categories which are an input for athletes.
+- **Athlete Management**: Create, Read for athletes.
+- **Tournament Management**: Create, Read for tournaments.
+- **Athlete Participation Management in Tournaments**: Create, Read for athlete participation in tournaments.
+- **Attempt Management**: Create, Read for weightlifting attempts by participation in tournaments.
+- **Competition Results**: Obtain competition results with pagination and filters.
 
+## Configuration and Execution
 
-## Configuración y Ejecución
-
-### Requisitos Previos
+### Prerequisites
 
 - [Python 3.8+](https://www.python.org/downloads/)
-- [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) (o cualquier otra base de datos compatible)
+- [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) (or any other compatible database)
 
-La información para implementación y despliegue sobre el diseño de la base de datos, creación de contenedor, datos de prueba y procedimientos almacenados se encuentra en la carpeta data en la raíz del directorio.
+The information for implementation and deployment regarding the database design, container creation, test data, and stored procedures can be found in the data folder at the root of the directory.
 
-En la carpeta /data/docker se encuentra el docker-compose requerido para levantar una instancia de sql server modificarlo para credenciales
-levantar el archivo con: ```docker-compose up```
+In the /data/docker folder, you will find the required docker-compose to bring up a SQL Server instance. Modify it for credentials and bring up the file with: ```docker-compose up```
 
+### Configuration
 
-### Configuración
-
-1. Clona el repositorio:
+1. Clone the repository:
     ```sh
-    git clone https://github.com/tu-usuario/torneos-halterofilia-api.git
-    cd torneos-halterofilia-api/apis_py
+    git clone https://github.com/your-username/weightlifting-tournaments-api.git
+    cd weightlifting-tournaments-api/apis_py
     ```
 
-2. Crea y activa un entorno virtual:
+2. Create and activate a virtual environment:
     ```sh
     python -m venv venv
-    source venv/bin/activate  # En Windows: venv\Scripts\activate
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
     ```
 
-3. Instala las dependencias:
+3. Install the dependencies:
     ```sh
     pip install -r requirements.txt
     ```
 
-4. Configura la cadena de conexión en `config.py`:
+4. Configure the connection string in `config.py`:
     ```python
     DATABASE_URL: str = os.getenv("DATABASE_URL", "mssql+pyodbc://user:password@server/weightlifting?driver=ODBC+Driver+17+for+SQL+Server")
-    JWT_SECRET: str = os.getenv("JWT_SECRET", "AquiTuKeyParaEncritar")
+    JWT_SECRET: str = os.getenv("JWT_SECRET", "YourSecretKeyHere")
     JWT_ALGORITHM: str = os.getenv("JWT_ALGORITHM", "HS256")
     JWT_EXPIRATION_TIME: int = os.getenv("JWT_EXPIRATION_TIME", 3600)
-    USERNAME: str = os.getenv("USERNAME", "UsuarioPrueba")
+    USERNAME: str = os.getenv("USERNAME", "TestUser")
     PASSWORD: str = os.getenv("PASSWORD", "yourSecurePassword123")
     ```
 
-5. Ejecuta la aplicación:
+5. Run the application:
     ```sh
     uvicorn app.main:app --reload
     ```
 
 ## Endpoints
 
-### Autenticación obtencion de token JWT
+### Authentication for obtaining JWT token
 - **Login**: `POST /api/Auth/login`
 
-### Paises
-- **Crear Pais**: `POST /api/Country`
-- **Obtener Pais**: `GET /api/Country`
+### Countries
+- **Create Country**: `POST /api/Country`
+- **Get Country**: `GET /api/Country`
 
-### Categorias de peso
-- **Crear categoria de peso**: `POST /api/WeightCategory`
-- **Obtener categorias de peso**: `GET /api/WeightCategory`
+### Weight Categories
+- **Create Weight Category**: `POST /api/WeightCategory`
+- **Get Weight Categories**: `GET /api/WeightCategory`
 
-### Atletas
-- **Crear Atleta**: `POST /api/Athlete`
-- **Obtener Atletas**: `GET /api/Athlete`
+### Athletes
+- **Create Athlete**: `POST /api/Athlete`
+- **Get Athletes**: `GET /api/Athlete`
 
-### Torneos
-- **Crear Torneo**: `POST /api/Tournament`
-- **Obtener Torneos**: `GET /api/Tournament`
+### Tournaments
+- **Create Tournament**: `POST /api/Tournament`
+- **Get Tournaments**: `GET /api/Tournament`
 
-### Participacion en Torneos
-- **Agregar participante a torneo**: `POST /api/TournamentParticipation`
-- **Revisar participantes de torneo**: `GET /api/TournamentParticipation`
+### Tournament Participation
+- **Add Participant to Tournament**: `POST /api/TournamentParticipation`
+- **Review Tournament Participants**: `GET /api/TournamentParticipation`
 
-### Intentos
-- **Agregar Intento por tipo y participante**: `POST /api/Attempt`
-- **Obtener Intentos por Torneo**: `GET /api/Attempt`
+### Attempts
+- **Add Attempt by Type and Participant**: `POST /api/Attempt`
+- **Get Attempts by Tournament**: `GET /api/Attempt`
 
-### Resultados de Competencias
-- **Obtener Resultados intentos realizados por atleta**: `GET /api/AthleteAttemptSummary`
-- **Obtener Resultados ppantalla de mejores pesos**: `GET /api/CompetitionResult`
+### Competition Results
+- **Get Results of Attempts Made by Athlete**: `GET /api/AthleteAttemptSummary`
+- **Get Competition Results with Best Weights**: `GET /api/CompetitionResult`
 
-## Contribuciones
+## Contributions
 
-¡Las contribuciones son bienvenidas! Si deseas contribuir a este proyecto, por favor abre un issue o envía un pull request.
+Contributions are welcome! If you wish to contribute to this project, please open an issue or send a pull request.
 
-## Licencia
+## License
 
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para obtener más detalles.
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ---
 
-¡Gracias por visitar mi proyecto! Espero que encuentres útil esta API y que demuestre mis habilidades en desarrollo de software. Si tienes alguna pregunta o comentario, no dudes en contactarme.
+Thank you for visiting my project! I hope you find this API useful and that it demonstrates my software development skills. If you have any questions or comments, feel free to contact me.
