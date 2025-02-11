@@ -1,12 +1,12 @@
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, Query, status, HTTPException
 from typing import List, Optional
-from app.schemas.country import CountryResponse
+from app.schemas.country import CountryResponse, CountryCreate
 from app.services.country_service import CountryService
 from app.auth.jwt_bearer import JWTBearer
 
 router = APIRouter(
-    prefix="/country",
-    tags=["country"],
+    prefix="/Country",
+    tags=["Country"],
     dependencies=[Depends(JWTBearer())]
 )
 
@@ -35,3 +35,27 @@ def get_countries(
         - **HTTPException 403**: Si el usuario no tiene permisos para acceder a la información.
     """
     return service.get_countries(page, size, id, name)
+
+@router.post("/", response_model=CountryResponse, status_code=status.HTTP_201_CREATED)
+def create_country(
+    country: CountryCreate,
+    service: CountryService = Depends()
+):
+    """
+    Crea un nuevo país en el sistema.
+
+    Parámetros:
+        - **country (CountryCreate)**: Objeto que contiene los datos del país a crear.
+
+    Retorna:
+        - **CountryResponse**: Objeto que representa el país creado.
+
+    Excepciones:
+        - **HTTPException 400**: Si el país ya existe o los datos son inválidos.
+        - **HTTPException 401**: Si el usuario no está autenticado.
+        - **HTTPException 403**: Si el usuario no tiene permisos para crear un país.
+    """
+    try:
+        return service.create_country(country)
+    except ValueError as e:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))

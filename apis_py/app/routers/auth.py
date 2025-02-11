@@ -4,8 +4,8 @@ from app.auth.jwt_handler import create_jwt
 from app.config import settings
 
 router = APIRouter(
-    prefix="/auth",
-    tags=["auth"]
+    prefix="/Auth",
+    tags=["Auth"]
 )
 
 @router.post("/login")

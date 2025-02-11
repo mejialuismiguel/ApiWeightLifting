@@ -5,8 +5,8 @@ from app.services.athlete_service import AthleteService
 from app.dependencies import get_current_user
 
 router = APIRouter(
-    prefix="/athlete",
-    tags=["athlete"],
+    prefix="/Athlete",
+    tags=["Athlete"],
     dependencies=[Depends(get_current_user)]
 )
 

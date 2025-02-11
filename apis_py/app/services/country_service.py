@@ -2,7 +2,7 @@ from typing import List, Optional
 from fastapi import Depends
 from sqlalchemy.orm import Session
 from app.models.country import Country
-from app.schemas.country import CountryResponse
+from app.schemas.country import CountryResponse, CountryCreate
 from app.database import get_db
 
 class CountryService:
@@ -42,4 +42,27 @@ class CountryService:
             query = query.filter(Country.name == name)
         query = query.order_by(Country.name)
         countries = query.offset((page - 1) * size).limit(size).all()
-        return [CountryResponse.from_orm(country) for country in countries]
+        return [CountryResponse.model_validate(country) for country in countries]
+
+    def create_country(self, country: CountryCreate) -> CountryResponse:
+        """
+        Crea un nuevo país en la base de datos.
+
+        Args:
+            country (CountryCreate): Objeto que contiene los datos del país a crear.
+
+        Returns:
+            CountryResponse: Objeto que representa el país creado.
+
+        Raises:
+            ValueError: Si el país ya existe en la base de datos.
+        """
+        db_country = self.db.query(Country).filter(Country.name == country.name).first()
+        if db_country:
+            raise ValueError("El país ya existe.")
+        
+        new_country = Country(name=country.name, code=country.code)
+        self.db.add(new_country)
+        self.db.commit()
+        self.db.refresh(new_country)
+        return CountryResponse.model_validate(new_country)
