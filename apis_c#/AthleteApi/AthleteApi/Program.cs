@@ -1,9 +1,9 @@
 using Serilog;
 using Serilog.Sinks.MSSqlServer;
 using Microsoft.EntityFrameworkCore;
-
 using AthleteApi.Services;
 using AthleteApi.Data;
+using Swashbuckle.AspNetCore.Annotations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -108,6 +108,8 @@ builder.Services.AddSwaggerGen(c =>
             Url = new Uri("https://example.com/license"),
         }
     });
+
+    c.EnableAnnotations(); // Habilitar anotaciones de Swagger
 
     // Agregar autenticación JWT a Swagger
     var securityScheme = new Microsoft.OpenApi.Models.OpenApiSecurityScheme

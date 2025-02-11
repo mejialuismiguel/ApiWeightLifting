@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using AthleteApi.Models;
 using AthleteApi.Services;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace AthleteApi.Controllers
 {
@@ -22,6 +23,17 @@ namespace AthleteApi.Controllers
 
         // Método HTTP GET para obtener los resultados de la competencia con paginación y filtros opcionales
         [HttpGet]
+        [SwaggerOperation(
+            Summary = "Obtiene los resultados de la competencia",
+            Description = "Obtiene los resultados de la competencia con paginación y filtros opcionales. " +
+                          "Los filtros disponibles son:\n" +
+                          "- `tournamentId`: Filtra por el identificador del torneo.\n" +
+                          "- `tournamentName`: Filtra por el nombre del torneo.\n" +
+                          "La paginación se controla con los parámetros `pageNumber` y `pageSize`."
+        )]
+        [SwaggerResponse(200, "Resultados de la competencia obtenidos exitosamente", typeof(IEnumerable<CompetitionResult>))]
+        [SwaggerResponse(400, "Solicitud incorrecta, se requiere al menos uno de los parámetros obligatorios", typeof(ApiResponse))]
+        [SwaggerResponse(500, "Error interno del servidor", typeof(ApiResponse))]
         public async Task<IActionResult> GetCompetitionResults(
             [FromQuery] int? tournamentId = null, [FromQuery] string? tournamentName = null, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {

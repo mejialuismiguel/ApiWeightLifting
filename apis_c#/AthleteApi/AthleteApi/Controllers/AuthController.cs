@@ -4,6 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using AthleteApi.Models;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace AthleteApi.Controllers
 {
@@ -21,6 +22,14 @@ namespace AthleteApi.Controllers
 
         // Método HTTP POST para el inicio de sesión
         [HttpPost("login")]
+        [SwaggerOperation(
+            Summary = "Inicia sesión",
+            Description = "Inicia sesión con las credenciales del usuario y genera un token JWT. Los campos requeridos son:\n" +
+                          "- `Username`: Nombre de usuario.\n" +
+                          "- `Password`: Contraseña del usuario."
+        )]
+        [SwaggerResponse(200, "Inicio de sesión exitoso", typeof(ApiResponse))]
+        [SwaggerResponse(401, "Nombre de usuario o contraseña inválidos", typeof(ApiResponse))]
         public IActionResult Login([FromBody] UserLogin userLogin)
         {
             // Aquí deberías validar las credenciales del usuario

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using AthleteApi.Models;
 using AthleteApi.Services;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace AthleteApi.Controllers
 {
@@ -22,6 +23,16 @@ namespace AthleteApi.Controllers
 
         // Método HTTP POST para crear un nuevo torneo
         [HttpPost]
+        [SwaggerOperation(
+            Summary = "Crea un nuevo torneo",
+            Description = "Crea un nuevo torneo de levantamiento de pesas. Los campos requeridos son:\n" +
+                          "- `Name`: Nombre del torneo.\n" +
+                          "- `Location`: Ubicación del torneo.\n" +
+                          "- `StartDate`: Fecha de inicio del torneo.\n" +
+                          "- `EndDate`: Fecha de finalización del torneo."
+        )]
+        [SwaggerResponse(200, "Torneo creado satisfactoriamente", typeof(ApiResponse))]
+        [SwaggerResponse(500, "Error interno del servidor", typeof(ApiResponse))]
         public async Task<IActionResult> CreateTournament([FromBody] Tournament tournament)
         {
             try
@@ -42,6 +53,15 @@ namespace AthleteApi.Controllers
 
         // Método HTTP GET para obtener una lista de torneos con paginación y filtro opcional por nombre
         [HttpGet]
+        [SwaggerOperation(
+            Summary = "Obtiene una lista de torneos",
+            Description = "Obtiene una lista de torneos con paginación y filtro opcional por nombre. " +
+                          "Los filtros disponibles son:\n" +
+                          "- `name`: Filtra por el nombre del torneo.\n" +
+                          "La paginación se controla con los parámetros `pageNumber` y `pageSize`."
+        )]
+        [SwaggerResponse(200, "Lista de torneos obtenida exitosamente", typeof(IEnumerable<Tournament>))]
+        [SwaggerResponse(500, "Error interno del servidor", typeof(ApiResponse))]
         public async Task<IActionResult> GetTournaments(
             [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10, [FromQuery] string? name = null)
         {

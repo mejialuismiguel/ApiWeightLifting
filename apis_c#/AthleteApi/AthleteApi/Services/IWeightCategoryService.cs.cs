@@ -9,5 +9,7 @@ namespace AthleteApi.Services
     {
         // Método para obtener una lista de categorías de peso con paginación
         Task<IEnumerable<WeightCategory>> GetWeightCategories(int pageNumber, int pageSize);
+        // Método para crear una nueva categoría de peso
+        Task AddWeightCategory(WeightCategory weightCategory);
     }
 }

@@ -58,5 +58,22 @@ namespace AthleteApi.Services
             // Retorna la lista de países
             return countries;
         }
+
+        // Metodo para agregar paises
+        public async Task AddCountry(Country country)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                using (var command = new SqlCommand("sp_addcountry", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@Name", country.Name);
+                    command.Parameters.AddWithValue("@Code", country.Code);
+
+                    connection.Open();
+                    await command.ExecuteNonQueryAsync();
+                }
+            }
+        }
     }
 }

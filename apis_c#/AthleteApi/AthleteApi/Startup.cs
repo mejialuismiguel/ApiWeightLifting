@@ -6,6 +6,7 @@ using System.Text;
 using AthleteApi.Data;
 using AthleteApi.Services;
 
+
 public class Startup
 {
     // Constructor de la clase Startup que recibe una instancia de IConfiguration
@@ -57,6 +58,9 @@ public class Startup
                     Url = new Uri("https://example.com/license"),
                 }
             });
+
+            // Activar anotaciones para documentacion Swagger
+            c.EnableAnnotations();
 
             // Agregar autenticación JWT a Swagger
             var securityScheme = new OpenApiSecurityScheme

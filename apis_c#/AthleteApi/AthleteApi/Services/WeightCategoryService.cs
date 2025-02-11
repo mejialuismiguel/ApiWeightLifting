@@ -58,5 +58,23 @@ namespace AthleteApi.Services
             // Retorna la lista de categorías de peso
             return weightCategories;
         }
+
+        public async Task AddWeightCategory(WeightCategory weightCategory)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                using (var command = new SqlCommand("sp_addweightcategory", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@Name", weightCategory.Name);
+                    command.Parameters.AddWithValue("@MinWeight", weightCategory.MinWeight);
+                    command.Parameters.AddWithValue("@MaxWeight", weightCategory.MaxWeight);
+                    command.Parameters.AddWithValue("@Gender", weightCategory.Gender);
+
+                    connection.Open();
+                    await command.ExecuteNonQueryAsync();
+                }
+            }
+        }
     }
 }

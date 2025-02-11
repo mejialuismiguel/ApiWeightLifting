@@ -9,5 +9,7 @@ namespace AthleteApi.Services
     {
         // Método para obtener la lista de países con paginación y filtro opcional por nombre
         Task<IEnumerable<Country>> GetCountries(int pageNumber, int pageSize, string? name = null);
+        // Método para agregar un nuevo país
+        Task AddCountry(Country country);
     }
 }
