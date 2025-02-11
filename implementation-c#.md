@@ -8,9 +8,9 @@ La API de Torneos de Halterofilia permite gestionar atletas, torneos, intentos y
 
 ### Características Principales
 
-- **Gestión de Atletas**: CRUD (Crear, Leer, Actualizar, Eliminar) para atletas.
-- **Gestión de Torneos**: CRUD para torneos.
-- **Gestión de Intentos**: CRUD para intentos de levantamiento de pesas.
+- **Gestión de Atletas**: (Crear, Leer) para atletas.
+- **Gestión de Torneos**: (Crear, Leer) para torneos.
+- **Gestión de Intentos**:(Crear, Leer) para intentos de levantamiento de pesas.
 - **Resultados de Competencias**: Obtener resultados de competencias con paginación y filtros.
 - **Autenticación y Autorización**: Implementación de autenticación JWT para asegurar la API.
 
