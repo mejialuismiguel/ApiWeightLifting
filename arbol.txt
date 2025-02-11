@@ -1,4 +1,7 @@
 .
+├── LICENSE
+├── README-ES.md
+├── README.md
 ├── apis_c#
 │   └── AthleteApi
 │       ├── AthleteApi
@@ -47,10 +50,8 @@
 │       │   │   ├── TournamentService.cs
 │       │   │   └── WeightCategoryService.cs
 │       │   ├── Startup.cs
-│       │   ├── Temporal.cs
 │       │   └── appsettings.json
-│       ├── AthleteApi.sln
-│       └── README.md
+│       └── AthleteApi.sln
 ├── apis_py
 │   ├── app
 │   │   ├── __init__.py
@@ -74,20 +75,35 @@
 │   │   ├── routers
 │   │   │   ├── __init__.py
 │   │   │   ├── athlete.py
+│   │   │   ├── athlete_attempt_summary.py
+│   │   │   ├── attempt.py
 │   │   │   ├── auth.py
+│   │   │   ├── competition_result.py
 │   │   │   ├── country.py
-│   │   │   └── tournament.py
+│   │   │   ├── tournament.py
+│   │   │   ├── tournament_participation.py
+│   │   │   └── weight_category.py
 │   │   ├── schemas
 │   │   │   ├── __init__.py
 │   │   │   ├── athlete.py
+│   │   │   ├── athlete_attempt_summary.py
+│   │   │   ├── attempt.py
 │   │   │   ├── auth.py
+│   │   │   ├── competition_result.py
 │   │   │   ├── country.py
-│   │   │   └── tournament.py
+│   │   │   ├── tournament.py
+│   │   │   ├── tournament_participation.py
+│   │   │   └── weight_category.py
 │   │   ├── services
 │   │   │   ├── __init__.py
+│   │   │   ├── athlete_attempt_summary_service.py
 │   │   │   ├── athlete_service.py
+│   │   │   ├── attempt_service.py
+│   │   │   ├── competition_result_service.py
 │   │   │   ├── country_service.py
-│   │   │   └── tournament_service.py
+│   │   │   ├── tournament_participation_service.py
+│   │   │   ├── tournament_service.py
+│   │   │   └── weight_category_service.py
 │   │   └── utils
 │   │       ├── __init__.py
 │   │       ├── db_log_handler.py
@@ -97,36 +113,49 @@
 │   │   └── app.log
 │   └── requirements.txt
 ├── arbol.txt
-└── data
-    ├── dbdesign
-    │   ├── WeightLifting.pdf
-    │   ├── WeightLifting.png
-    │   └── pesistas-db.dbml
-    ├── docker
-    │   └── docker-compose.yml
-    └── sql
-        ├── inserts
-        │   ├── createdb_weightlifting.sql
-        │   ├── inserts_athlete.sql
-        │   ├── inserts_attempt.sql
-        │   ├── inserts_initial_data.sql
-        │   ├── inserts_tournament_participation.sql
-        │   └── inserts_tournaments.sql
-        └── procedures
-            ├── sp_addAttempt.sql
-            ├── sp_addparticipant.sql
-            ├── sp_createathlete.sql
-            ├── sp_createtournament.sql
-            ├── sp_getathleteattemptsummary.sql
-            ├── sp_getathletes.sql
-            ├── sp_getattemptsbytournament.sql
-            ├── sp_getcompetitionresults.sql
-            ├── sp_getcountries.sql
-            ├── sp_getparticipants.sql
-            ├── sp_gettournaments.sql
-            ├── sp_getweightcategories.sql
-            ├── sp_registerathletefortournament.sql
-            └── sp_registerattemt.sql
+├── data
+│   ├── dbdesign
+│   │   ├── WeightLifting.pdf
+│   │   ├── WeightLifting.png
+│   │   └── pesistas-db.dbml
+│   ├── docker
+│   │   └── docker-compose.yml
+│   └── sql
+│       ├── inserts
+│       │   ├── createdb_weightlifting.sql
+│       │   ├── inserts_athlete.sql
+│       │   ├── inserts_attempt.sql
+│       │   ├── inserts_initial_data.sql
+│       │   ├── inserts_tournament_participation.sql
+│       │   └── inserts_tournaments.sql
+│       └── procedures
+│           ├── sp_addAttempt.sql
+│           ├── sp_addcountry.sql
+│           ├── sp_addparticipant.sql
+│           ├── sp_addweightcategory.sql
+│           ├── sp_createathlete.sql
+│           ├── sp_createtournament.sql
+│           ├── sp_getathleteattemptsummary.sql
+│           ├── sp_getathletes.sql
+│           ├── sp_getattemptsbytournament.sql
+│           ├── sp_getcompetitionresults.sql
+│           ├── sp_getcountries.sql
+│           ├── sp_getparticipants.sql
+│           ├── sp_gettournaments.sql
+│           ├── sp_getweightcategories.sql
+│           ├── sp_registerathletefortournament.sql
+│           └── sp_registerattemt.sql
+├── images
+│   ├── GET_TokenJWT_ExampleC#.png
+│   ├── GET_TokenJWT_ExamplePython.png
+│   ├── GET_TournamentC#Example.png
+│   ├── GET_TournamentPythonExample.png
+│   ├── POST_AthleteExample.png
+│   └── POST_TournamentExample.png
+├── implementation-c#-ES.md
+├── implementation-c#.md
+├── implementation-python-ES.md
+└── implementation-python.md
 
-24 directories, 105 files
+25 directories, 133 files
 tree -I 'venv|sqlvol|bin|obj|__pycache__' > arbol.txt
